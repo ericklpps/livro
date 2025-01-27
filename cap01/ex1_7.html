@@ -1,0 +1,11 @@
+<meta charset="utf-8">
+<script>
+    //Cálculo da porcentagem de um garçom
+
+    const valorDaConta = Number(prompt("Valor da conta: "));
+    const taxaDeServico = 10/100 * valorDaConta
+    const total = valorDaConta + taxaDeServico
+    alert("Com a taxa de serviço de 10%, a conta ficou no valor de " + total.toFixed(2));
+    //to.Fixed(2) serve para dizer que o valor só deve conter duas casas decimais
+    //poderiamos também multiplicar o valor da conta por 1.10, ou somar o valor a conta * 0.10
+</script>

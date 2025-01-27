@@ -1,0 +1,13 @@
+<meta charset="utf-8">
+<script>
+    //Cálculo de salário
+
+    const bruto = Number(prompt("Qual o salário do colaborador?: "))
+    const taxa = Number(0.13)
+    const imposto = bruto * taxa;
+    const liquido = bruto - imposto
+    alert("O salário de " + bruto.toFixed(2) + " com o desconto de " + imposto.toFixed(2) + 
+    " dos impostos, fica em "+ liquido.toFixed(2))
+
+
+</script>
