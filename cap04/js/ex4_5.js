@@ -12,5 +12,4 @@ frm.addEventListener("submit", (e)=>{
     } else{
         resp.innerText = "Número " + numero + "não possui raiz exata"
     }
-
 })
