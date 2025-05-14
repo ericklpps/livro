@@ -1,15 +1,17 @@
-const frm = document.querySelector("form")
-const resp = document.querySelector("h3")
+let formulario = document.querySelector('form');
 
-frm.addEventListener("submit", (e)=>{
-    e.preventDefault()
-    const numero = Number(frm.inNumero.value)
+let resp = document.querySelector('h3');
 
-    const raiz = Math.sqrt(numero)
-    
-    if (Number.isInteger(raiz)){
-        resp.innerText = "Raiz: " + raiz
-    } else{
-        resp.innerText = "Número " + numero + "não possui raiz exata"
+formulario.addEventListener('submit', (evento) =>{
+    evento.preventDefault();
+
+    let numero = Number(formulario.inNumero.value);
+
+    let calculaRaizExata = Math.sqrt(numero);
+
+    if(Number.isInteger(calculaRaizExata)){
+        resp.innerHTML = `Raiz de ${numero} é exata (${calculaRaizExata})`
+    }else{
+        resp.innerHTML = `Erro! Raíz não é exata`
     }
 })

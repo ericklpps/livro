@@ -1,19 +1,19 @@
-const frm = document.querySelector("form")
-const resp = document.querySelector("h3")
+let formulario = document.querySelector('form');
 
-frm.addEventListener("submit", (e) =>{
-    e.preventDefault()
-    const velocidadePermitida = Number(frm.inVelocidadePermitida.value)
-    const velocidadeCondutor = Number(frm.inVelocidadeCondutor.value) //recebendo os valores
+let resposta = document.querySelector('h3');
 
-    const multaGrave = velocidadePermitida * 1.2 //120%, ao invés de definir os 20%
+formulario.addEventListener('submit', (evento)=>{
+    evento.preventDefault()
+    const velocidadePermitida = Number(document.getElementById('inVelocidadePermitida').value)
+    const velocidadeCondutor = Number(document.getElementById('inVelocidadeCondutor').value)
 
     if (velocidadeCondutor <= velocidadePermitida){
-        resp.innerText = "Sem Multa"
-    } else if (velocidadeCondutor > multaGrave){
-        resp.innerText = "Multa Grave"
-    } else {
-        resp.innerText = "Multa Leve"
+        resposta.innerHTML = `Sem multa, via de ${velocidadePermitida}, condutor a ${velocidadeCondutor}`
+    }else{
+        if(velocidadeCondutor > velocidadePermitida + (velocidadePermitida * 0.20)){
+            resposta.innerHTML = `Multa grave, via de ${velocidadePermitida}, condutor a ${velocidadeCondutor}`
+        }else{
+            resposta.innerHTML = `Multa leve`
+        }
     }
-
 })

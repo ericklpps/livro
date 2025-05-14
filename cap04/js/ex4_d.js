@@ -1,30 +1,28 @@
-const frm = document.querySelector("form")
-const resp = document.querySelector("#outResp1")
-const resp2 = document.querySelector("#outResp2")
+let formulario = document.querySelector('form');
 
-frm.addEventListener("submit", (e)=>{
-    e.preventDefault()
-    const ladoA = Number(frm.inLadoA.value)
-    const ladoB = Number(frm.inLadoB.value)
-    const ladoC = Number(frm.inLadoC.value)
+let resposta = document.getElementById('outResp1');
+let tipo = document.getElementById('outResp2');
 
-    let isoceles = "Isoceles"
-    let equilatero = "Equilátero"
-    let escaleno = "Escaleno"
+formulario.addEventListener('submit', (evento)=>{
+    evento.preventDefault();
 
-    if (ladoA > ladoB+ladoC || ladoB > ladoA+ladoC || ladoC > ladoA+ladoB){
-        resp.innerText = "Não forma um triângulo"
-        resp2.innerText = "Erro"
-    } else{
-        resp.innerText = "Lados podem formar um triângulo"
+    let ladoA = Number(document.getElementById("inLadoA").value)
+    let ladoB = Number(document.getElementById("inLadoB").value)
+    let ladoC = Number(document.getElementById("inLadoC").value)
 
-        if (ladoA === ladoB && ladoB === ladoC){
-            resp2.innerText = equilatero
-        }else if(ladoA === ladoB || ladoB === ladoC || ladoA === ladoC){
-            resp2.innerText = isoceles
-        }
-        else {
-            resp2.innerText = escaleno
-        }
+    if(ladoA + ladoB < ladoC || ladoA + ladoC < ladoB || ladoC + ladoB < ladoA){
+        resposta.innerHTML = `Não é possível formar triângulo`
     }
+
+    if (ladoA == ladoB && ladoB == ladoC) {
+    resposta.innerHTML = `Lados podem formar triângulo`;
+    tipo.innerHTML = `Triângulo equilátero`;
+} else if (ladoA !== ladoB && ladoB !== ladoC && ladoC !== ladoA) {
+    resposta.innerHTML = `Lados podem formar triângulo`;
+    tipo.innerHTML = `Triângulo escaleno`;
+} else {
+    resposta.innerHTML = `Lados podem formar triângulo`;
+    tipo.innerHTML = `Triângulo isósceles`;
+}
+
 })

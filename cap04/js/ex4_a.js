@@ -1,15 +1,15 @@
-const frm = document.querySelector("form")
-const resp = document.querySelector("h3")
+let formulario = document.querySelector('form');
 
-frm.addEventListener("submit", (e)=>{
-    e.preventDefault()
-    const numero = Number(frm.inNumero.value)
-    
-    let verificacao = numero % 2
-    
-    if(verificacao === 0){
-        resp.innerText = "o número é par"
+let resposta = document.querySelector('h3');
+
+formulario.addEventListener("submit", (evento)=>{
+    evento.preventDefault()
+
+    const numero = document.getElementById('inNumero').value;
+
+    if (numero%2 == 0){
+        resposta.innerHTML = `${numero} é par`
     }else{
-        resp.innerText = "o número é impar"
+        resposta.innerHTML = `${numero} é impar`
     }
 })
