@@ -17,5 +17,4 @@ formulario.addEventListener("submit", (evento) =>{
         resp.innerHTML = `${nome}, você como uma mulher de ${altura} cm de altura, o peso ideal é de ${peso.toFixed(2)}`
     }
 
-
 })
